@@ -1,4 +1,4 @@
-import { Address, Image, ImageThumbnail } from "../types/autogen";
+import { Address } from "../types/autogen";
 
 export interface FinProHeroProps {
   name?: string;
@@ -6,7 +6,7 @@ export interface FinProHeroProps {
   address?: Address;
   phone?: string;
   email?: string;
-  headshot?: Image;
+  headshotUrl?: string;
 }
 
 export const initialProps: FinProHeroProps = {
@@ -29,12 +29,12 @@ const FinProHero = ({
   address,
   phone,
   email,
-  headshot,
+  headshotUrl,
 }: FinProHeroProps) => {
   return (
     <div className="inline-flex  items-end justify-center gap-16 bg-blue-950 bg-opacity-80">
-      {headshot && (
-        <img className="h-80 w-80 rounded-full" src={headshot.url} />
+      {headshotUrl && (
+        <img className="h-80 w-80 rounded-full" src={headshotUrl} />
       )}
       <div className="inline-flex flex-col items-start justify-center gap-4 self-stretch">
         <div className="self-stretch text-[34px] font-bold leading-10 text-white">

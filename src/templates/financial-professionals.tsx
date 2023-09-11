@@ -25,6 +25,7 @@ export const config: TemplateConfig = {
       "headshot",
       "description",
       "slug",
+      "emails",
     ],
     filter: { savedFilterIds: ["1315957659"] },
   },
@@ -52,15 +53,15 @@ export default function Blog({ document }: TemplateProps) {
         name={`${document.name}`}
         title={`${document.c_jobTitle}`}
         address={{
-          line1: `${document.address.line1}`,
+          line1: `${document.address?.line1}`,
           line2: ``,
-          city: `${document.address.city}`,
-          region: `${document.address.region}`,
-          postalCode: `${document.address.postalCode}`,
+          city: `${document.address?.city}`,
+          region: `${document.address?.region}`,
+          postalCode: `${document.address?.postalCode}`,
         }}
         phone={`${document.mainPhone}`}
         email={`${document.emails?.[0]}`}
-        headshot={{ url: `${document.headshot.url}`, width: 0, height: 0 }}
+        headshotUrl={`${document.headshot?.url}`}
       />
       <FinProNav />
       <FinProAbout
