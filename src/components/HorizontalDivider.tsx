@@ -1,30 +1,41 @@
-import { HexColor } from "@yext/studio";
+import { cva } from "cva";
+import { Colors, Sizes, backgroundColor, height } from "../sharedVariants";
+import { cn } from "../utils";
+
+const horizontalDividerVariants = cva("w-0.5 rounded-full", {
+  variants: {
+    color: backgroundColor,
+    height,
+  },
+});
 
 export interface HorizontalDividerProps {
-  dividerColor: HexColor;
-  dividerHeight: "2" | "4" | "6" | "8";
+  /**
+   * @displayName Color
+   * @tooltip Controls the color of the divider
+   */
+  color?: Colors;
+  /**
+   * @displayName Height
+   * @tooltip Controls the height of the divider
+   */
+  height: Sizes;
 }
 
 export const initialProps: HorizontalDividerProps = {
-  dividerColor: "#000000",
-  dividerHeight: "4",
+  color: "Dark Gray",
+  height: "16px",
 };
 
-const HorizontalDivider = ({
-  dividerColor,
-  dividerHeight,
-}: HorizontalDividerProps) => {
-  const heightVariants = {
-    "2": "h-2",
-    "4": "h-4",
-    "6": "h-6",
-    "8": "h-8",
-  };
-
+const HorizontalDivider = ({ color, height }: HorizontalDividerProps) => {
   return (
     <span
-      className={`mx-2 ${heightVariants[dividerHeight]} w-0.5 rounded-full`}
-      style={{ backgroundColor: dividerColor }}
+      className={cn(
+        horizontalDividerVariants({
+          height,
+          color,
+        })
+      )}
     />
   );
 };

@@ -16,16 +16,16 @@ import "../index.css";
 export const config: TemplateConfig = {
   stream: {
     $id: "fin-pro",
-    localization: { locales: ["en"], primary: false },
+    localization: { locales: ["en"] },
     fields: [
       "name",
       "c_jobTitle",
-      "address",
+      "address?",
       "mainPhone",
-      "headshot",
+      "emails?",
+      "headshot?",
       "description",
       "slug",
-      "emails",
     ],
     filter: { savedFilterIds: ["1315957659"] },
   },
@@ -63,11 +63,15 @@ export default function Blog({ document }: TemplateProps) {
         email={`${document.emails?.[0]}`}
         headshotUrl={`${document.headshot?.url}`}
       />
-      <FinProNav />
       <FinProAbout
         name={`${document.name}`}
         description={`${document.description}`}
       />
+      <FinProAbout
+        name={` ${document.name}`}
+        description={`${document.description}`}
+      />
+      <FinProNav />
     </MainLayout>
   );
 }

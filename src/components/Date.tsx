@@ -1,58 +1,66 @@
-import { HexColor } from "@yext/studio";
 import { formatDate } from "../utils/formatDate";
+import { cva } from "cva";
+import { cn } from "../utils";
+import {
+  Colors,
+  TextSizes,
+  Weights,
+  color,
+  textSize,
+  weight,
+} from "../sharedVariants";
+
+const dateVariants = cva("font-sans", {
+  variants: {
+    color,
+    weight,
+    textSize,
+  },
+});
 
 export interface DateProps {
+  /**
+   * @displayName Date
+   * @tooltip Controls the date to display
+   */
   date?: string;
-  textColor?: HexColor;
-  textSize: "xs" | "sm" | "base" | "lg" | "xl" | "2xl";
-  fontWeight:
-    | "thin"
-    | "extralight"
-    | "light"
-    | "normal"
-    | "medium"
-    | "semibold"
-    | "bold"
-    | "extrabold"
-    | "black";
+  /**
+   * @displayName Size
+   * @tooltip Controls the font size of the date
+   */
+  textSize?: TextSizes;
+  /**
+   * @displayName Weight
+   * @tooltip Controls the font weight of the date
+   */
+  weight?: Weights;
+  /**
+   * @displayName Color
+   * @tooltip Controls the text color of the date
+   */
+  color?: Colors;
 }
 
 export const initialProps: DateProps = {
   date: "2023-06-01",
-  textColor: "#000000",
-  fontWeight: "normal",
-  textSize: "base",
+  color: "Dark Gray",
+  weight: "Regular",
+  textSize: "M",
 };
 
-const Date = ({ date, textColor, fontWeight, textSize }: DateProps) => {
-  const weightVariants = {
-    thin: "font-thin",
-    extralight: "font-extralight",
-    light: "font-light",
-    normal: "font-normal",
-    medium: "font-medium",
-    semibold: "font-semibold",
-    bold: "font-bold",
-    extrabold: "font-extrabold",
-    black: "font-black",
-  };
-
-  const sizeVariants = {
-    xs: "text-xs",
-    sm: "text-sm",
-    base: "text-base",
-    lg: "text-lg",
-    xl: "text-xl",
-    "2xl": "text-2xl",
-  };
-
+const Date = ({ date, color, weight, textSize }: DateProps) => {
   return (
-    <span
-      className={`${sizeVariants[textSize]} ${weightVariants[fontWeight]}`}
-      style={{ color: textColor }}
+    <p
+      className={cn(
+        dateVariants({
+          textSize,
+          weight,
+          color,
+        })
+      )}
     >
       {formatDate(date)}
-    </span>
+    </p>
   );
 };
 
