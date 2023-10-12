@@ -1,4 +1,3 @@
-import StaticMap from "./StaticMap"
 import { PhoneIcon, EnvelopeIcon } from "@heroicons/react/24/outline";
 
 export interface AppointmentProps {
@@ -11,34 +10,42 @@ export const initialProps: AppointmentProps = {
   email: "email@capital.com",
 };
 
-const Appointment = ({phone, email}: AppointmentProps) => {
+const Appointment = ({ phone, email }: AppointmentProps) => {
   return (
-      <div className="self-stretch justify-center items-start gap-[30px] inline-flex">
-        <div className="self-stretch flex-col justify-start items-start gap-8 inline-flex">
-          <div className="self-stretch justify-start items-center gap-4 inline-flex">
-            <div className="grow shrink basis-0 h-6 justify-start items-center gap-2 flex">
-              <div className="w-4 h-4 justify-center items-center flex">
-                <div className="w-5 h-5 text-center text-zinc-800 text-base font-light">
-                  <PhoneIcon />
-                  </div>
+    <div className="inline-flex items-start justify-center gap-[30px] self-stretch">
+      <div className="inline-flex flex-col items-start justify-start gap-8 self-stretch">
+        <div className="flex flex-col items-center justify-start gap-4 self-stretch">
+          <div className="flex h-6 shrink grow basis-0 items-center justify-start gap-2">
+            <div className="flex h-4 w-4 items-center justify-center">
+              <div className="h-5 w-5 text-center text-base font-light text-zinc-800">
+                <PhoneIcon />
               </div>
-              <div className="text-zinc-800 text-base font-normal leading-normal">{phone}</div>
             </div>
-            <div className="justify-start items-center gap-2 flex">
-              <div className="w-4 h-4 justify-center items-center flex">
-                <div className="w-5 h-5 text-center text-zinc-800 text-base font-light"><EnvelopeIcon /></div>
-              </div>
-              <div className="text-zinc-800 text-base font-normal  underline leading-normal">{email}</div>
+            <div className="text-base font-normal leading-normal text-zinc-800">
+              {phone}
             </div>
           </div>
-          <div className="rounded-md border border-blue-950 flex-col justify-center items-center flex">
-            <div className="grow shrink basis-0 px-6 py-2 justify-start items-center gap-2.5 inline-flex">
-              <div className="text-center text-blue-950 text-sm font-normal font-['Lato'] leading-snug">Request An Appointment</div>
+          <div className="flex items-center justify-start gap-2">
+            <div className="flex h-4 w-4 items-center justify-center">
+              <div className="h-5 w-5 text-center text-base font-light text-zinc-800">
+                <EnvelopeIcon />
+              </div>
+            </div>
+            <div className="text-base font-normal leading-normal  text-zinc-800 underline">
+              {email}
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col items-center justify-center rounded-md border border-blue-950">
+          <div className="inline-flex shrink grow basis-0 items-center justify-start gap-2.5 px-6 py-2">
+            <div className="text-center font-['Lato'] text-sm font-normal leading-snug text-blue-950">
+              Request An Appointment
             </div>
           </div>
         </div>
       </div>
-  )
-}
+    </div>
+  );
+};
 
 export default Appointment;
