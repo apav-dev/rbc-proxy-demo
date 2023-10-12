@@ -2,6 +2,7 @@ import { GetPath, TemplateConfig, TemplateProps } from "@yext/pages";
 import BlogContent from "../components/BlogContent";
 import FinProHeader from "../components/FinProHeader";
 import MainLayout from "../components/MainLayout";
+
 import "../index.css";
 
 export const config: TemplateConfig = {

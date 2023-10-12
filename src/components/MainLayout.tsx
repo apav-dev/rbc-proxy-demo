@@ -13,7 +13,7 @@ export const initialProps = {
 const MainLayout = ({ children, backgroundColor }: MainLayoutProps) => {
   return (
     <div
-      className="flex min-h-screen w-full flex-col"
+      className="mx-auto flex min-h-screen w-full flex-col"
       style={{ backgroundColor }}
     >
       {children}
