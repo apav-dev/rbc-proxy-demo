@@ -57,7 +57,7 @@ const FinProHero = ({
             <div className="shrink grow basis-0 text-base font-normal leading-normal text-white">
               {address?.line1}
               <br />
-              {`${address?.city}, ${address?.city} ${address?.postalCode}`}
+              {`${address?.city}, ${address?.region} ${address?.postalCode}`}
             </div>
             <div className="inline-flex flex-col items-start justify-center gap-1">
               <div className="inline-flex items-center justify-start gap-2">

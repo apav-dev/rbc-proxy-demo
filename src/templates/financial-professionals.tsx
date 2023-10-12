@@ -12,7 +12,7 @@ import FinProHeader from "../components/FinProHeader";
 import FinProHero from "../components/FinProHero";
 import FinProNav from "../components/FinProNav";
 import MainLayout from "../components/MainLayout";
-import StaticMap from "../components/StaticMap";
+import Section from "../components/Section";
 import "../index.css";
 
 export const config: TemplateConfig = {
@@ -22,7 +22,6 @@ export const config: TemplateConfig = {
     fields: [
       "mainPhone",
       "c_primaryEmail",
-      "yextDisplayCoordinate",
       "name",
       "c_jobTitle",
       "address",
@@ -49,28 +48,32 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = (
 
 export default function Blog({ document }: TemplateProps) {
   return (
-    <>
-      <MainLayout backgroundColor="#FFFFFF">
-        <FinProHeader />
-        <FinProHero
-          name={`${document.name}`}
-          title={`${document.c_jobTitle}`}
-          address={{
-            line1: `${document.address.line1}`,
-            line2: ``,
-            city: `${document.address.city}`,
-            region: `${document.address.region}`,
-            postalCode: `${document.address.postalCode}`,
-          }}
+    <MainLayout backgroundColor="#FFFFFF">
+      <FinProHeader />
+      <FinProHero
+        name={`${document.name}`}
+        title={`${document.c_jobTitle}`}
+        address={{
+          line1: `${document.address.line1}`,
+          line2: ``,
+          city: `${document.address.city}`,
+          region: `${document.address.region}`,
+          postalCode: `${document.address.postalCode}`,
+        }}
+        phone={`${document.mainPhone}`}
+        headshotUrl={`${document.headshot.url}`}
+      />
+      <FinProNav />
+      <FinProAbout
+        name={`${document.name}`}
+        description={`${document.description}`}
+      />
+      <Section>
+        <Appointment
           phone={`${document.mainPhone}`}
-          headshotUrl={`${document.headshot.url}`}
+          email={`${document.c_primaryEmail}`}
         />
-        <FinProNav />
-        <FinProAbout
-          name={`${document.name}`}
-          description={`${document.description}`}
-        />
-      </MainLayout>
-    </>
+      </Section>
+    </MainLayout>
   );
 }
