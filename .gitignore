@@ -1,6 +1,8 @@
 node_modules/
 sites-rendered-output/
-dist/
+dist/public
+dist/assets
+dist/plugin
 .yext
 .artifact-output
 sites-config/features.json
