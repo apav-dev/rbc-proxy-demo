@@ -33,7 +33,7 @@ export const config: TemplateConfig = {
   },
 };
 export const getPath: GetPath<TemplateProps> = ({ document }) => {
-  return document.slug ?? document.entityId.toString();
+  return document.slug ?? `financial-professionals/${document.entityId}`;
 };
 
 export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = (
@@ -46,7 +46,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = (
   };
 };
 
-export default function Blog({ document }: TemplateProps) {
+export default function FinPro({ document }: TemplateProps) {
   return (
     <MainLayout backgroundColor="#FFFFFF">
       <FinProHeader />
