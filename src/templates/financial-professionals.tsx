@@ -29,7 +29,7 @@ export const config: TemplateConfig = {
       "description",
       "slug",
     ],
-    filter: { entityTypes: ["financialProfessional"] },
+    filter: { savedFilterIds: ["1344032459"] },
   },
 };
 export const getPath: GetPath<TemplateProps> = ({ document }) => {
