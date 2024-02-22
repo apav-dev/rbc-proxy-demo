@@ -31,8 +31,9 @@ export const config: TemplateConfig = {
     ],
     filter: { savedFilterIds: ["1344032459"] },
   },
-  pageUrlField: "c_pageURL",
+  pageUrlField: "c_pagesURL",
 };
+
 export const getPath: GetPath<TemplateProps> = ({ document }) => {
   return document.slug ?? `financial-professionals/${document.entityId}`;
 };
